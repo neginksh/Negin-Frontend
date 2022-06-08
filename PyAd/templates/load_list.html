@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script>
+<!--    jquery function-->
+<!--        $(document).ready(function(){-->
+<!--            $("#submit").click(function(){-->
+<!--                 var status= $("#select-service").val();-->
+<!--                 if (status=="Add" || status=="Del" || status=="Mod"){-->
+<!--                    $("#edfile").show();-->
+<!--                    $("#server-name").show();-->
+<!--                    $("#student_Id").hide();-->
+<!--                    $("#cohort_name").hide();-->
+<!--                    $("#activation").hide();-->
+
+<!--                 } else if (status=="Inf"){-->
+<!--                    $("#edfile").hide();-->
+<!--                    $("#server-name").hide();-->
+<!--                    $("#activation").hide();-->
+<!--                    $("#cohort_name").hide();-->
+<!--                    $("#student_Id").show();-->
+<!--                   -->
+<!--                  }-->
+<!--                  else if  (status=="CRT") {-->
+<!--                    $("#edfile").hide();-->
+<!--                    $("#server-name").hide();-->
+<!--                    $("#student_Id").hide();-->
+<!--                    $("#activation").hide();-->
+<!--                    $("#cohort_name").show();   -->
+<!--                  }-->
+<!--                  else{-->
+<!--                    $("#edfile").hide();-->
+<!--                    $("#server-name").hide();-->
+<!--                    $("#student_Id").show();-->
+<!--                    $("#cohort_name").hide();-->
+<!--                    $("#activation").show();   -->
+<!--                    }         -->
+<!--          })-->
+<!--        });-->
+
+
+
+
+<!--        javascript function-->
+        <script>
+var mykey={{key|tojson}}
+if (mykey =="Add" || mykey == "Del" || mykey=="Mod" || mykey=="ACTV")
+{
+    document.getElementById("student_Id").style.display = "none";
+    document.getElementById("lable_student_Id").style.display = "none";
+    document.getElementById("lable_cohort_name").style.display = "none";
+    document.getElementById("cohort_name").style.display = "none";
+    document.getElementById("edfile").style.display = "block";
+}
+
+else if (mykey=="Inf")
+{
+    document.getElementById("student_Id").style.display = "block";
+
+    document.getElementById("lable_student_Id").style.display = "block";
+    document.getElementById("lable_cohort_name").style.display = "none";
+    document.getElementById("cohort_name").style.display = "none";
+    document.getElementById("edfile").style.display = "none";
+
+}
+else if (mykey=="CRT")
+{
+    document.getElementById("student_Id").style.display = "none";
+    document.getElementById("lable_student_Id").style.display = "none";
+    document.getElementById("lable_cohort_name").style.display = "block";
+    document.getElementById("cohort_name").style.display = "block";
+    document.getElementById("edfile").style.display = "none";
+
+}
+
+
+</script>
+
+   <div class="container-fluid ml-3">
+    <form method="POST" action="{{ url_for('ldap_blueprint.check_list',key=key)}} " enctype=multipart/form-data> >
+        <div class=" container-md w-25 mt-3 " id="ed_file">
+        <label for="edfile" class="form-label" >Upload a file </label>
+        <input type="file" class="form-control" id="edfile" >
+        </div>
+          <br>
+          
+        <div class="  container-md w-25 mb-3" id="servername">
+          <label for="server-name" class="form-label" >Server dn</label>
+          <input type="text" class="form-control" id="server-name">
+        </div>
+        <br>
+
+        <div class="container-md w-25 mb-3 "  id="studentId">
+            <label for="student_Id"class="form-label" >Student Id </label>
+            <input type="text" class="form-control" id="student_Id">
+          </div>
+          <br>
+
+        <div class="container-md w-25 mb-3 " id="cohortname">
+            <label for="cohort_name" class="form-label" >Cohort Name</label>
+            <input type="text" class="form-control" id="cohort_name">
+        </div>
+        <br>
+
+        <div class="form-check container-md w-25 mb-3" id="activation">
+          <input class="form-check-input" type="radio" name="activation" id="enable">
+          <label class="form-check-label" for="enable">
+            Enable
+          </label>
+          
+         <br>
+         
+          <input class="form-check-input" type="radio" name="activation" id="disable" >
+          <label class="form-check-label" for="disable">
+            Disable
+          </label>
+         </div> 
+      <br>
+    
+      
+        <div class="container-md w-25 mb-3 ">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </body>
+</html>

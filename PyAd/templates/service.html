@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="stylesheet" href="css/bootstrap.css">
+    
+</head>
+<body>
+    
+   
+    <div class="container w-25 mt-5 ">
+        <form action="{{ url_for('ldap_blueprint.uploader') }}" method="POST" enctype=multipart/form-data>
+           <label for="select-service" >Select the Service from the list</label>
+           <select id="select-service" name="key"  class="form-select" aria-label="Default select example">
+               <option selected>Open this select menu</option>
+               <option value="Add" name="key">Add Student</option>
+               <option value="Del"name="key">Delete student</option>
+               <option value="Mod"name="key">Modify Students</option>
+               <option value="Inf"name="key">Student Info</option>
+               <option value="CRT"name="key">List of Students in the cohort</option>
+               <option value="ACTV"name="key">Enable/Disable user </option>
+           </select><br><br>
+
+            <div class="container-md w-25 mb-3 "> 
+           
+                <button type="submit" id='submit'class="btn btn-primary">Submit</button>
+             
+               </div>
+
+          </form> 
+       
+   </div>
+        
+  
+    
+    </body>
+</html>
